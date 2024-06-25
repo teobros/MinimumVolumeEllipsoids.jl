@@ -241,6 +241,10 @@ function Base.rand(ϵ::Ellipsoid, m::Integer)
     return ellipsoid
 end
 
+function Base.in(ϵ::Ellipsoid, point::AbstractVector)
+    return ((point - ϵ.x)'ϵ.H*(point - ϵ.x) <=2 )
+end
+
 include("volume.jl")
 
 end # module
